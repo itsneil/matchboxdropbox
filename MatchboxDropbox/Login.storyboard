@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NMO-V9-NWq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="Caw-uI-d69">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController_Identifier" id="NMO-V9-NWq" customClass="LoginViewController" customModule="MatchboxDropbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uPR-W4-Th0"/>
+                        <viewControllerLayoutGuide type="bottom" id="yjl-eC-hsX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pMt-UX-Xee">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXb-j9-GYb">
+                                <rect key="frame" x="67" y="243.5" width="240" height="180"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matchboxdropbox" translatesAutoresizingMaskIntoConstraints="NO" id="Vn8-85-9wg">
+                                        <rect key="frame" x="70" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="WjF-If-Fn3"/>
+                                            <constraint firstAttribute="height" constant="100" id="juK-dM-rtS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUR-iA-LEX">
+                                        <rect key="frame" x="8" y="130" width="224" height="50"/>
+                                        <color key="backgroundColor" red="0.1930486261844635" green="0.46733134984970093" blue="0.89100903272628784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="A6o-uw-U13"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSignInButton:" destination="NMO-V9-NWq" eventType="touchUpInside" id="gF9-M5-VXf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="GB7-U9-Xhm"/>
+                                    <constraint firstItem="cUR-iA-LEX" firstAttribute="leading" secondItem="XXb-j9-GYb" secondAttribute="leading" constant="8" id="SBU-z5-okD"/>
+                                    <constraint firstAttribute="trailing" secondItem="cUR-iA-LEX" secondAttribute="trailing" constant="8" id="btV-rX-zab"/>
+                                    <constraint firstItem="Vn8-85-9wg" firstAttribute="centerX" secondItem="XXb-j9-GYb" secondAttribute="centerX" id="fQH-bK-7xd"/>
+                                    <constraint firstItem="Vn8-85-9wg" firstAttribute="top" secondItem="XXb-j9-GYb" secondAttribute="top" id="gYy-Wa-G9X"/>
+                                    <constraint firstAttribute="bottom" secondItem="cUR-iA-LEX" secondAttribute="bottom" id="kNf-vt-Lv5"/>
+                                    <constraint firstAttribute="height" constant="180" id="vuO-My-gf7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XXb-j9-GYb" firstAttribute="centerY" secondItem="pMt-UX-Xee" secondAttribute="centerY" id="AGf-6g-2Is"/>
+                            <constraint firstItem="XXb-j9-GYb" firstAttribute="centerX" secondItem="pMt-UX-Xee" secondAttribute="centerX" id="ke9-5P-l5f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signInButton" destination="cUR-iA-LEX" id="ea8-i7-6hq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSF-Wj-pQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="98.50074962518741"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="matchboxdropbox" width="250" height="232"/>
+    </resources>
+</document>

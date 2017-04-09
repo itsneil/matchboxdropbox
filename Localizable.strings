@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  MatchboxDropbox
+
+  Created by Neil Skinner on 08/04/2017.
+  Copyright © 2017 Neil Skinner. All rights reserved.
+*/
+
+// global
+"global_ok" = "OK";
+"global_cancel" = "Cancel";
+"global_error" = "Error";
+"global_catastrophicMessage" = "There has been a catastrophic error, we cannot continue.";
+"global_bytes" = "bytes";
+"global_signout" = "Sign Out";
+"global_loading" = "Loading...";
+"gloabl_refresh" = "Refresh";
+
+// login
+"button_signIn" = "Sign In with Dropbox";
+"signout_error" = "We have been unable to sign you out!";
+
+// browse
+"browse_loadMore" = "Load More";
+"browse_fileTitle" = "This is a file";
+"browse_fileMessage" = "Currently it is only possible to view the contents of directories";
+"refresh_error" = "We have been unable to refresh your files";
+"data_error" = "There has been an error processing the data, please try again.";
+
+// oauth error
+"oauth_errorMessage" = "We have been unable to get access to your Dropbox account!";

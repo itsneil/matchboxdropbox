@@ -13,10 +13,15 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        // Try and get a saved token (Insecurities aside, given more time would use Keychain)
+        if let token = UserDefaults.standard.string(forKey: APIHelper.AccessTokenKey) {
+            APIHelper.shared.accessToken = token
+        }
+        
         return true
     }
 
@@ -44,6 +49,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+      
+        // If we recieve a URL scheme with prefix matchbox, and a fragment of "access_token"
+        // we can assume a successful login, so set the access token and push the files view controller
+        guard url.scheme == "matchbox",
+            let accessToken = url.fragments["access_token"],
+            let loginViewController = UIApplication.topViewController() as? LoginViewController,
+            let browseNavigationController = UIStoryboard(name: "Browse", bundle: nil).instantiateViewController(withIdentifier: BrowseNavigationController.Identifier) as? BrowseNavigationController
+        else {
+            
+            if url.scheme == "matchbox" {
+                UIApplication.showJustOKAlertView(NSLocalizedString("global_error", comment: "Error Title"),
+                                                  message: NSLocalizedString("oauth_errorMessage", comment: "Error Message"))
+
+            }
+            
+            return false
+        }
+        
+        APIHelper.shared.accessToken = accessToken    
+        loginViewController.present(browseNavigationController, animated: true, completion: nil)
+    
+        return true
+        
+    }
+    
+    
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
