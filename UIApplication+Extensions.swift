@@ -49,4 +49,28 @@ extension UIApplication {
             
         }
     }
+    
+    /**
+     Method to show a thumbnail in a UIAlertController
+     - parameter image: The image to display
+     */
+    class func showImageAlertView(_ image: UIImage) {
+        
+        DispatchQueue.main.async {
+            
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+            
+            let imageAction = UIAlertAction(title:NSLocalizedString("global_close", comment: ""), style: .default, handler: nil)
+            imageAction.setValue(image, forKey: "image")
+            alert.addAction(imageAction)
+        
+            
+            if let visibleVC = UIApplication.topViewController() {
+                visibleVC.present(alert, animated: true, completion: nil)
+            }
+            
+        }
+        
+
+    }
 }

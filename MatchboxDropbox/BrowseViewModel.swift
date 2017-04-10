@@ -14,8 +14,13 @@ import CoreData
  */
 protocol BrowseDelegate : class {
     
+    // the data set has been updated
     func dataUpdated()
+    
+    // show a loading dialogue on the view
     func loadingStart()
+    
+    // cancel a loading dialogue on the view
     func loadingFinished()
 }
 
@@ -61,27 +66,27 @@ class BrowseViewModel: NSObject {
             UserDefaults.standard.synchronize()
         }
     }
-
+    
     /**
-    the key to store the cursor in
-    - returns: The keypath in the UserDefaults to store the cursor
+     the key to store the cursor in
+     - returns: The keypath in the UserDefaults to store the cursor
      */
     func getCursorKey() -> String {
         return "cursor\(path)"
     }
     
     /**
-    the key to store hasMore in
-    - returns: The key in UserDefaults to store hasMore
+     the key to store hasMore in
+     - returns: The key in UserDefaults to store hasMore
      */
     func getHasMoreKey() -> String {
         return "more\(path)"
     }
     
     /**
-    Sets up this viewmodel with the view and path
-    - parameter delegate: The BrowseDelegate (typically a TableView) that'll recieve data updates
-    - parameter path: The directory path we are interested in
+     Sets up this viewmodel with the view and path
+     - parameter delegate: The BrowseDelegate (typically a TableView) that'll recieve data updates
+     - parameter path: The directory path we are interested in
      */
     func setViewModel(withDelegate delegate: BrowseDelegate, forPath path:String = "/") {
         
@@ -112,7 +117,7 @@ class BrowseViewModel: NSObject {
     }
     
     /**
-    Removes any core data entities matching the fetch request and call the API from the beginning
+     Removes any core data entities matching the fetch request and call the API from the beginning
      */
     func forceRefresh() {
         self.cursor = nil
@@ -127,6 +132,7 @@ class BrowseViewModel: NSObject {
             
             let result = try DataManager.shared.managedObjectContext.fetch(fetchRequest)
             
+            // Thread safe removal, without this we get a set was mutated whilst enumerating crash
             DataManager.shared.managedObjectContext.performAndWait {
                 for object in result {
                     if let object = object as? DropboxItem {
@@ -135,14 +141,13 @@ class BrowseViewModel: NSObject {
                 }
             }
             
-            
-           delegate?.loadingStart()
+            delegate?.loadingStart()
             self.loadData(fromScratch: true)
+            
         } catch {
             UIApplication.showJustOKAlertView(NSLocalizedString("global_error", comment: "Error Title"),
                                               message: NSLocalizedString("refresh_error", comment: "Error Message"))
         }
-        
         
     }
     
@@ -159,7 +164,7 @@ class BrowseViewModel: NSObject {
             browseAPI.listFolderContinue(forPath: path, withCursor: cursor) { (success, cursor, more) in
                 self.delegate?.loadingFinished()
                 guard let cursor = cursor, let more = more, success == true else {
-                
+                    
                     UIApplication.showJustOKAlertView(NSLocalizedString("global_error", comment: "Error Title"),
                                                       message: NSLocalizedString("data_error", comment: "Error Message"))
                     
@@ -238,21 +243,51 @@ class BrowseViewModel: NSObject {
             return
         }
         
-        // We can only browse deeper into folders, so guard that everything we need is available
-        guard let item = self.getItem(forIndexPath: indexPath),
-            item.tag == "folder",
-            let folderPath = item.path_display,
-            let vc = fromVC.storyboard?.instantiateViewController(withIdentifier: BrowseTableViewController.Identifier) as? BrowseTableViewController else {
-            
-                UIApplication.showJustOKAlertView(NSLocalizedString("browse_fileTitle", comment: "File Title"),
-                                                  message: NSLocalizedString("browse_fileMessage", comment: "File Message"))
-                
-                return
+        // We need an item from the data, so guard this at the beginning
+        guard let item = self.getItem(forIndexPath: indexPath) else {
+            UIApplication.showJustOKAlertView(NSLocalizedString("browse_fileTitle", comment: "File Title"),
+                                              message: NSLocalizedString("data_error", comment: "File Message"))
+            return
         }
         
-        // Inject the browsed to path into the next view controller and present
-        vc.path = folderPath
-        fromVC.navigationController?.pushViewController(vc, animated: true)
+        // If the item is a file, with an image extension and under 20MB, we can get a thumbnail
+        
+        if item.tag == "file" {
+            
+            // 20MB (dropbox limit) = 20971520 bytes, and dropbox allowed file extensions
+            if let name = item.name, item.size < 20971520 && ["jpg","jpeg","png","tiff","tif","gif","bmp"].contains(URL(fileURLWithPath: name).pathExtension.lowercased()) {
+                
+                browseAPI.getThumbnail(forId: item.itemId!, completion: { (image) in
+                    
+                    if let image = image {
+                        UIApplication.showImageAlertView(image)
+                    }
+                    
+                })
+                
+            } else {
+                UIApplication.showJustOKAlertView(NSLocalizedString("browse_fileTitle", comment: "File Title"),
+                                                  message: NSLocalizedString("browse_fileMessage", comment: "File Message"))
+            }
+            return
+        }
+        else if item.tag == "folder" {    // If the item is a folder, we can navigate into it
+            
+            if let folderPath = item.path_display,
+                let vc = fromVC.storyboard?.instantiateViewController(withIdentifier: BrowseTableViewController.Identifier) as? BrowseTableViewController {
+                // Inject the browsed to path into the next view controller and present
+                vc.path = folderPath
+                fromVC.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            return
+        }
+        
+        // unsupported tag
+        UIApplication.showJustOKAlertView(NSLocalizedString("global_error", comment: "File Title"),
+                                          message: NSLocalizedString("unsupported_error", comment: "File Message"))
+        
+        
     }
     
 }

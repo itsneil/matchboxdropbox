@@ -16,6 +16,7 @@ class BrowseAPI: NSObject {
     
     let listFolderUrlString = "https://api.dropboxapi.com/2/files/list_folder"
     let listFolderContinueUrlString = "https://api.dropboxapi.com/2/files/list_folder/continue"
+    let getThumbnailUrlString = "https://content.dropboxapi.com/2/files/get_thumbnail"
     
     /**
     Calls the dropbox list_folder endpoint
@@ -122,4 +123,50 @@ class BrowseAPI: NSObject {
             }.resume()
         
     }
+    
+    /**
+    gets a thumbnail if we determined that the file is an image of type jpg, jpeg, png, tiff, tif, gif and bmp and under 20MB
+    - parameter itemId: The file ID to send to Dropbox
+    - parameter image: The thumbnail if successful, nil if not
+     */
+    func getThumbnail(forId itemId:String, completion: @escaping (_ image: UIImage?) -> Void) {
+        
+        // If we have no valid URL or token we cannot continue
+        guard let url = URL(string: self.getThumbnailUrlString),
+            let accessToken = APIHelper.shared.accessToken else {
+                completion(nil)
+                return
+        }
+        
+        // Build the URLRequest with the required headers and body
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            
+            let jsonData = try JSONSerialization.data(withJSONObject: ["path":itemId, "format":"png", "size":"w128h128"], options: [])
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            request.setValue(jsonString, forHTTPHeaderField: "Dropbox-API-Arg")
+            
+        } catch {
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            // Can we make an image with the data from the response?
+            guard error == nil,
+                let data = data,
+                let image = UIImage(data: data)?.withRenderingMode(.alwaysOriginal) else {
+                    completion(nil)
+                    return
+            }
+            
+            completion(image)
+        
+            }.resume()
+    }
+    
 }

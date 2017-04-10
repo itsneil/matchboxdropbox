@@ -15,7 +15,7 @@
 "global_signout" = "Sign Out";
 "global_loading" = "Loading...";
 "gloabl_refresh" = "Refresh";
-
+"global_close" = "Close";
 // login
 "button_signIn" = "Sign In with Dropbox";
 "signout_error" = "We have been unable to sign you out!";
@@ -26,6 +26,7 @@
 "browse_fileMessage" = "Currently it is only possible to view the contents of directories";
 "refresh_error" = "We have been unable to refresh your files";
 "data_error" = "There has been an error processing the data, please try again.";
+"unsupported_error" = "This is an unsupported file type";
 
 // oauth error
 "oauth_errorMessage" = "We have been unable to get access to your Dropbox account!";
