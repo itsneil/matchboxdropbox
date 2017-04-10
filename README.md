@@ -7,7 +7,7 @@ Here is my submission to the Dropbox client coding test. It can do the following
 * "Load more" button in large directories
 * Little thumbnail viewer when tapping on an image file
 
-# Archetecture
+# Architecture
 The app is written in Swift 3.0, targetting iOS 10.3 using URLSessions for networking, Core Data for data and an MVVM pattern. We have a collection of unit tests that check the Login page and some Core Data operations via the View Model. Each class is heavily commented and strings are referenced from Localizable.
 
 # Authentication
