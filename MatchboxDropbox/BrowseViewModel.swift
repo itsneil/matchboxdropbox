@@ -124,14 +124,19 @@ class BrowseViewModel: NSObject {
         
         // Remove any DropboxItem objects in Core Data matching this root path
         do {
+            
             let result = try DataManager.shared.managedObjectContext.fetch(fetchRequest)
-            for object in result {
-                if let object = object as? DropboxItem {
-                    DataManager.shared.managedObjectContext.delete(object)
+            
+            DataManager.shared.managedObjectContext.performAndWait {
+                for object in result {
+                    if let object = object as? DropboxItem {
+                        DataManager.shared.managedObjectContext.delete(object)
+                    }
                 }
             }
-            delegate?.loadingStart()
             
+            
+           delegate?.loadingStart()
             self.loadData(fromScratch: true)
         } catch {
             UIApplication.showJustOKAlertView(NSLocalizedString("global_error", comment: "Error Title"),
