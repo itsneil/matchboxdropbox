@@ -88,7 +88,7 @@ class BrowseViewModel: NSObject {
      - parameter delegate: The BrowseDelegate (typically a TableView) that'll recieve data updates
      - parameter path: The directory path we are interested in
      */
-    func setViewModel(withDelegate delegate: BrowseDelegate, forPath path:String = "/") {
+    func setViewModel(withDelegate delegate: BrowseDelegate?, forPath path:String = "/") {
         
         self.delegate = delegate
         self.path = path
@@ -99,7 +99,7 @@ class BrowseViewModel: NSObject {
             self.cursor = existingCursor
             self.hasMore = existingHasMore
         } else {
-            delegate.loadingStart()
+            delegate?.loadingStart()
             self.loadData(fromScratch: true)
         }
         
@@ -108,11 +108,12 @@ class BrowseViewModel: NSObject {
         let fetchRequest:NSFetchRequest<DropboxItem> = DropboxItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "path_root == %@", path )
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
+        fetchRequest.fetchBatchSize = 10000
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataManager.shared.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchedResultsController?.delegate = self
         
         try? self.fetchedResultsController?.performFetch()
+
         
     }
     
@@ -250,11 +251,10 @@ class BrowseViewModel: NSObject {
             return
         }
         
-        // If the item is a file, with an image extension and under 20MB, we can get a thumbnail
-        
+        // If the item is a file
         if item.tag == "file" {
             
-            // 20MB (dropbox limit) = 20971520 bytes, and dropbox allowed file extensions
+            // with an image extension and under 20MB, we can get a thumbnail (20MB (dropbox limit) = 20971520 bytes, and dropbox allowed file extensions)
             if let name = item.name, item.size < 20971520 && ["jpg","jpeg","png","tiff","tif","gif","bmp"].contains(URL(fileURLWithPath: name).pathExtension.lowercased()) {
                 
                 browseAPI.getThumbnail(forId: item.itemId!, completion: { (image) in
@@ -283,7 +283,7 @@ class BrowseViewModel: NSObject {
             return
         }
         
-        // unsupported tag
+        // unsupported, so show error message
         UIApplication.showJustOKAlertView(NSLocalizedString("global_error", comment: "File Title"),
                                           message: NSLocalizedString("unsupported_error", comment: "File Message"))
         

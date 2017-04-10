@@ -53,8 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         // If we recieve a URL scheme with prefix matchbox, and a fragment of "access_token"
         // we can assume a successful login, so set the access token and push the files view controller
-        guard url.scheme == "matchbox",
-            let accessToken = url.fragments["access_token"],
+        guard APIHelper.shared.getAccessTokenFrom(oauthUrl: url),
             let loginViewController = UIApplication.topViewController() as? LoginViewController,
             let browseNavigationController = UIStoryboard(name: "Browse", bundle: nil).instantiateViewController(withIdentifier: BrowseNavigationController.Identifier) as? BrowseNavigationController
         else {
@@ -68,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-        APIHelper.shared.accessToken = accessToken    
+        
         loginViewController.present(browseNavigationController, animated: true, completion: nil)
     
         return true

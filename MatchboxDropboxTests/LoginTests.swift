@@ -63,4 +63,72 @@ class LoginTests: XCTestCase {
         // The login button should have correctly localised text
         XCTAssertTrue(loginViewController.signInButton.titleLabel?.text == NSLocalizedString("button_signIn", comment: "Login Button text"), "The Login button's text should be localised.")
     }
+    
+    /**
+    Test that a valid oauth token reply sets the token in the app
+     */
+    func testOauthReplyValid() {
+        
+        let oauthUrl = URL(string: "matchbox://redirect/#access_token=ABC&something_else=DEF")!
+        let result = APIHelper.shared.getAccessTokenFrom(oauthUrl: oauthUrl)
+        XCTAssertTrue(result && APIHelper.shared.accessToken == "ABC", "This is a valid oauth reply with a token")
+        
+    }
+    
+    /**
+     Test that a valid oauth token reply where the access_token fragment isn't first sets the token in the app
+     */
+    func testOauthReplyValidBackwards() {
+       
+        let oauthUrl = URL(string: "matchbox://redirect/#something_else=DEF&access_token=ABC")!
+        let result = APIHelper.shared.getAccessTokenFrom(oauthUrl: oauthUrl)
+        XCTAssertTrue(result && APIHelper.shared.accessToken == "ABC", "This is a valid oauth reply with a token")
+        
+    }
+    
+    /**
+     Test that a callback with no token fails
+     */
+    func testOauthReplyInvalid() {
+        
+        let oauthUrl = URL(string: "matchbox://redirect/#something_else=DEF")!
+        let result = APIHelper.shared.getAccessTokenFrom(oauthUrl: oauthUrl)
+        XCTAssertFalse(result, "This is an invalid oauth reply")
+    }
+    
+    /**
+    Test that a stored oauth token causes an automatic login
+     */
+    func testStoredOauthToken() {
+        
+        guard let loginViewController = loginViewController,
+            let _ = loginViewController.view else {
+                XCTFail("The VC shouldn't be nil")
+                return
+        }
+        
+        APIHelper.shared.accessToken = "ABC"
+        
+        let _ = loginViewController.view
+        loginViewController.viewDidAppear(true)
+        XCTAssertTrue(loginViewController.signInButton.isHidden, "This login button should be hidden")
+        
+    }
+    
+    /**
+    Test that no oauth token doesn't cause an automatic login
+     */
+    func testNoStoredOauthToken() {
+        
+        guard let loginViewController = loginViewController,
+            let _ = loginViewController.view else {
+                XCTFail("The VC shouldn't be nil")
+                return
+        }
+        APIHelper.shared.accessToken = nil
+        let _ = loginViewController.view
+        loginViewController.viewDidAppear(true)
+        XCTAssertFalse(loginViewController.signInButton.isHidden, "This login button should not be hidden")
+        
+    }
 }

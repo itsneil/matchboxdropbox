@@ -16,7 +16,6 @@
 		20C29B691E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B671E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodeld */; };
 		20C29B6B1E98E3BF008EEF67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B6A1E98E3BF008EEF67 /* Assets.xcassets */; };
 		20C29B6E1E98E3BF008EEF67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B6C1E98E3BF008EEF67 /* LaunchScreen.storyboard */; };
-		20C29B791E98E3BF008EEF67 /* MatchboxDropboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B781E98E3BF008EEF67 /* MatchboxDropboxTests.swift */; };
 		20C29B861E99709A008EEF67 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B851E99709A008EEF67 /* Login.storyboard */; };
 		20C29B881E9970A2008EEF67 /* Browse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B871E9970A2008EEF67 /* Browse.storyboard */; };
 		20C29B8E1E9975B3008EEF67 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B8D1E9975B3008EEF67 /* LoginViewController.swift */; };
@@ -29,10 +28,7 @@
 		20C29B9D1E998221008EEF67 /* BrowseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B9C1E998221008EEF67 /* BrowseAPI.swift */; };
 		20C29BA01E998C67008EEF67 /* ImportOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B9F1E998C67008EEF67 /* ImportOperation.swift */; };
 		20C29BA71E9A74CD008EEF67 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BA61E9A74CD008EEF67 /* LoginTests.swift */; };
-		20C29BA91E9A74D5008EEF67 /* BrowseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BA81E9A74D5008EEF67 /* BrowseTests.swift */; };
 		20C29BAB1E9A74E5008EEF67 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BAA1E9A74E5008EEF67 /* DataTests.swift */; };
-		20C29BAD1E9A74F0008EEF67 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BAC1E9A74F0008EEF67 /* APITests.swift */; };
-		20C29BAF1E9A74FE008EEF67 /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BAE1E9A74FE008EEF67 /* HelperTests.swift */; };
 		20C29BB11E9A900D008EEF67 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BB01E9A900D008EEF67 /* BrowseTableViewController.swift */; };
 		20C29BB31E9A9040008EEF67 /* BrowseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BB21E9A9040008EEF67 /* BrowseTableViewCell.swift */; };
 		20F15E3E1E9AE36B00E105F5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 20F15E3D1E9AE36B00E105F5 /* README.md */; };
@@ -61,7 +57,6 @@
 		20C29B6D1E98E3BF008EEF67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20C29B6F1E98E3BF008EEF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20C29B741E98E3BF008EEF67 /* MatchboxDropboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchboxDropboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		20C29B781E98E3BF008EEF67 /* MatchboxDropboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchboxDropboxTests.swift; sourceTree = "<group>"; };
 		20C29B7A1E98E3BF008EEF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20C29B851E99709A008EEF67 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		20C29B871E9970A2008EEF67 /* Browse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browse.storyboard; sourceTree = "<group>"; };
@@ -75,10 +70,7 @@
 		20C29B9C1E998221008EEF67 /* BrowseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseAPI.swift; sourceTree = "<group>"; };
 		20C29B9F1E998C67008EEF67 /* ImportOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportOperation.swift; sourceTree = "<group>"; };
 		20C29BA61E9A74CD008EEF67 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		20C29BA81E9A74D5008EEF67 /* BrowseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTests.swift; sourceTree = "<group>"; };
 		20C29BAA1E9A74E5008EEF67 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
-		20C29BAC1E9A74F0008EEF67 /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
-		20C29BAE1E9A74FE008EEF67 /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		20C29BB01E9A900D008EEF67 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
 		20C29BB21E9A9040008EEF67 /* BrowseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewCell.swift; sourceTree = "<group>"; };
 		20F15E3D1E9AE36B00E105F5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -151,12 +143,8 @@
 		20C29B771E98E3BF008EEF67 /* MatchboxDropboxTests */ = {
 			isa = PBXGroup;
 			children = (
-				20C29BA51E9A7434008EEF67 /* Helper */,
-				20C29BA41E9A742C008EEF67 /* API */,
-				20C29BA31E9A7427008EEF67 /* Data */,
-				20C29BA21E9A7421008EEF67 /* Browse */,
-				20C29BA11E9A741B008EEF67 /* Login */,
-				20C29B781E98E3BF008EEF67 /* MatchboxDropboxTests.swift */,
+				20C29BA61E9A74CD008EEF67 /* LoginTests.swift */,
+				20C29BAA1E9A74E5008EEF67 /* DataTests.swift */,
 				20C29B7A1E98E3BF008EEF67 /* Info.plist */,
 			);
 			path = MatchboxDropboxTests;
@@ -205,46 +193,6 @@
 			);
 			name = Data;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		20C29BA11E9A741B008EEF67 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				20C29BA61E9A74CD008EEF67 /* LoginTests.swift */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		20C29BA21E9A7421008EEF67 /* Browse */ = {
-			isa = PBXGroup;
-			children = (
-				20C29BA81E9A74D5008EEF67 /* BrowseTests.swift */,
-			);
-			name = Browse;
-			sourceTree = "<group>";
-		};
-		20C29BA31E9A7427008EEF67 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				20C29BAA1E9A74E5008EEF67 /* DataTests.swift */,
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		20C29BA41E9A742C008EEF67 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				20C29BAC1E9A74F0008EEF67 /* APITests.swift */,
-			);
-			name = API;
-			sourceTree = "<group>";
-		};
-		20C29BA51E9A7434008EEF67 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				20C29BAE1E9A74FE008EEF67 /* HelperTests.swift */,
-			);
-			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,12 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20C29B791E98E3BF008EEF67 /* MatchboxDropboxTests.swift in Sources */,
-				20C29BAF1E9A74FE008EEF67 /* HelperTests.swift in Sources */,
 				20C29BA71E9A74CD008EEF67 /* LoginTests.swift in Sources */,
-				20C29BA91E9A74D5008EEF67 /* BrowseTests.swift in Sources */,
 				20C29BAB1E9A74E5008EEF67 /* DataTests.swift in Sources */,
-				20C29BAD1E9A74F0008EEF67 /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,4 +37,21 @@ class APIHelper: NSObject {
         }
     }
     
+    /**
+    pulls the access token from the callback URL
+    - parameter url: The URL given to us from dropbox
+    - returns: if there is a token within
+     */
+    func getAccessTokenFrom(oauthUrl url:URL) -> Bool {
+        
+        guard url.scheme == "matchbox",
+            let accessToken = url.fragments["access_token"] else {
+                return false
+        }
+        
+        APIHelper.shared.accessToken = accessToken
+        return true
+
+    }
+    
 }
