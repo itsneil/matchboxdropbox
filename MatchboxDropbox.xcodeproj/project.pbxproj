@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		202330D31E9AAEB2006BA5DA /* BrowseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202330D21E9AAEB2006BA5DA /* BrowseViewModel.swift */; };
-		202330D61E9AB0B6006BA5DA /* DropboxItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202330D41E9AB0B6006BA5DA /* DropboxItem+CoreDataClass.swift */; };
-		202330D71E9AB0B6006BA5DA /* DropboxItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202330D51E9AB0B6006BA5DA /* DropboxItem+CoreDataProperties.swift */; };
-		202330DA1E9AB66D006BA5DA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202330D91E9AB66D006BA5DA /* DataManager.swift */; };
 		202330DC1E9AD03B006BA5DA /* BrowseLoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202330DB1E9AD03B006BA5DA /* BrowseLoadMoreTableViewCell.swift */; };
+		20BDFE061E9C251000FB4628 /* DropboxItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE041E9C251000FB4628 /* DropboxItem+CoreDataClass.swift */; };
+		20BDFE071E9C251000FB4628 /* DropboxItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE051E9C251000FB4628 /* DropboxItem+CoreDataProperties.swift */; };
+		20BDFE0A1E9C252000FB4628 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE081E9C252000FB4628 /* DataManager.swift */; };
+		20BDFE0B1E9C252000FB4628 /* ImportOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE091E9C252000FB4628 /* ImportOperation.swift */; };
+		20BDFE0D1E9C252B00FB4628 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE0C1E9C252B00FB4628 /* APIHelper.swift */; };
+		20BDFE101E9C253300FB4628 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE0E1E9C253300FB4628 /* UIApplication+Extensions.swift */; };
+		20BDFE111E9C253300FB4628 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDFE0F1E9C253300FB4628 /* URL+Extensions.swift */; };
+		20BDFE131E9C253F00FB4628 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20BDFE121E9C253F00FB4628 /* Localizable.strings */; };
 		20C29B611E98E3BF008EEF67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B601E98E3BF008EEF67 /* AppDelegate.swift */; };
 		20C29B691E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B671E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodeld */; };
 		20C29B6B1E98E3BF008EEF67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B6A1E98E3BF008EEF67 /* Assets.xcassets */; };
@@ -20,13 +25,8 @@
 		20C29B881E9970A2008EEF67 /* Browse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B871E9970A2008EEF67 /* Browse.storyboard */; };
 		20C29B8E1E9975B3008EEF67 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B8D1E9975B3008EEF67 /* LoginViewController.swift */; };
 		20C29B901E9976A6008EEF67 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B8F1E9976A6008EEF67 /* LoginAPI.swift */; };
-		20C29B921E9977B0008EEF67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20C29B911E9977B0008EEF67 /* Localizable.strings */; };
-		20C29B951E997E9C008EEF67 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B941E997E9C008EEF67 /* URL+Extensions.swift */; };
-		20C29B971E997F57008EEF67 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B961E997F57008EEF67 /* APIHelper.swift */; };
-		20C29B991E997FEE008EEF67 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B981E997FEE008EEF67 /* UIApplication+Extensions.swift */; };
 		20C29B9B1E99807A008EEF67 /* BrowseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B9A1E99807A008EEF67 /* BrowseNavigationController.swift */; };
 		20C29B9D1E998221008EEF67 /* BrowseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B9C1E998221008EEF67 /* BrowseAPI.swift */; };
-		20C29BA01E998C67008EEF67 /* ImportOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29B9F1E998C67008EEF67 /* ImportOperation.swift */; };
 		20C29BA71E9A74CD008EEF67 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BA61E9A74CD008EEF67 /* LoginTests.swift */; };
 		20C29BAB1E9A74E5008EEF67 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BAA1E9A74E5008EEF67 /* DataTests.swift */; };
 		20C29BB11E9A900D008EEF67 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C29BB01E9A900D008EEF67 /* BrowseTableViewController.swift */; };
@@ -46,10 +46,15 @@
 
 /* Begin PBXFileReference section */
 		202330D21E9AAEB2006BA5DA /* BrowseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseViewModel.swift; sourceTree = "<group>"; };
-		202330D41E9AB0B6006BA5DA /* DropboxItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DropboxItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		202330D51E9AB0B6006BA5DA /* DropboxItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DropboxItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		202330D91E9AB66D006BA5DA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		202330DB1E9AD03B006BA5DA /* BrowseLoadMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseLoadMoreTableViewCell.swift; sourceTree = "<group>"; };
+		20BDFE041E9C251000FB4628 /* DropboxItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DropboxItem+CoreDataClass.swift"; path = "MatchboxDropbox/DropboxItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BDFE051E9C251000FB4628 /* DropboxItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DropboxItem+CoreDataProperties.swift"; path = "MatchboxDropbox/DropboxItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BDFE081E9C252000FB4628 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = MatchboxDropbox/DataManager.swift; sourceTree = "<group>"; };
+		20BDFE091E9C252000FB4628 /* ImportOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImportOperation.swift; path = MatchboxDropbox/ImportOperation.swift; sourceTree = "<group>"; };
+		20BDFE0C1E9C252B00FB4628 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = MatchboxDropbox/APIHelper.swift; sourceTree = "<group>"; };
+		20BDFE0E1E9C253300FB4628 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+Extensions.swift"; path = "MatchboxDropbox/UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		20BDFE0F1E9C253300FB4628 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+Extensions.swift"; path = "MatchboxDropbox/URL+Extensions.swift"; sourceTree = "<group>"; };
+		20BDFE121E9C253F00FB4628 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		20C29B5D1E98E3BF008EEF67 /* MatchboxDropbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchboxDropbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C29B601E98E3BF008EEF67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C29B681E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MatchboxDropbox.xcdatamodel; sourceTree = "<group>"; };
@@ -62,13 +67,8 @@
 		20C29B871E9970A2008EEF67 /* Browse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browse.storyboard; sourceTree = "<group>"; };
 		20C29B8D1E9975B3008EEF67 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		20C29B8F1E9976A6008EEF67 /* LoginAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
-		20C29B911E9977B0008EEF67 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../Localizable.strings; sourceTree = "<group>"; };
-		20C29B941E997E9C008EEF67 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		20C29B961E997F57008EEF67 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
-		20C29B981E997FEE008EEF67 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		20C29B9A1E99807A008EEF67 /* BrowseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseNavigationController.swift; sourceTree = "<group>"; };
 		20C29B9C1E998221008EEF67 /* BrowseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseAPI.swift; sourceTree = "<group>"; };
-		20C29B9F1E998C67008EEF67 /* ImportOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportOperation.swift; sourceTree = "<group>"; };
 		20C29BA61E9A74CD008EEF67 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		20C29BAA1E9A74E5008EEF67 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		20C29BB01E9A900D008EEF67 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			children = (
 				20C29B601E98E3BF008EEF67 /* AppDelegate.swift */,
 				20C29B6A1E98E3BF008EEF67 /* Assets.xcassets */,
-				20C29B911E9977B0008EEF67 /* Localizable.strings */,
+				20BDFE121E9C253F00FB4628 /* Localizable.strings */,
 				20C29B6C1E98E3BF008EEF67 /* LaunchScreen.storyboard */,
 				20C29B6F1E98E3BF008EEF67 /* Info.plist */,
 				20C29B841E997079008EEF67 /* Browse */,
@@ -174,9 +174,9 @@
 		20C29B931E997E8E008EEF67 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				20C29B961E997F57008EEF67 /* APIHelper.swift */,
-				20C29B941E997E9C008EEF67 /* URL+Extensions.swift */,
-				20C29B981E997FEE008EEF67 /* UIApplication+Extensions.swift */,
+				20BDFE0C1E9C252B00FB4628 /* APIHelper.swift */,
+				20BDFE0E1E9C253300FB4628 /* UIApplication+Extensions.swift */,
+				20BDFE0F1E9C253300FB4628 /* URL+Extensions.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -185,11 +185,11 @@
 		20C29B9E1E998A18008EEF67 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				202330D41E9AB0B6006BA5DA /* DropboxItem+CoreDataClass.swift */,
-				202330D51E9AB0B6006BA5DA /* DropboxItem+CoreDataProperties.swift */,
+				20BDFE041E9C251000FB4628 /* DropboxItem+CoreDataClass.swift */,
+				20BDFE051E9C251000FB4628 /* DropboxItem+CoreDataProperties.swift */,
 				20C29B671E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodeld */,
-				20C29B9F1E998C67008EEF67 /* ImportOperation.swift */,
-				202330D91E9AB66D006BA5DA /* DataManager.swift */,
+				20BDFE081E9C252000FB4628 /* DataManager.swift */,
+				20BDFE091E9C252000FB4628 /* ImportOperation.swift */,
 			);
 			name = Data;
 			path = ..;
@@ -280,7 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20C29B921E9977B0008EEF67 /* Localizable.strings in Resources */,
+				20BDFE131E9C253F00FB4628 /* Localizable.strings in Resources */,
 				20C29B861E99709A008EEF67 /* Login.storyboard in Resources */,
 				20C29B881E9970A2008EEF67 /* Browse.storyboard in Resources */,
 				20C29B6E1E98E3BF008EEF67 /* LaunchScreen.storyboard in Resources */,
@@ -303,23 +303,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				20C29BB31E9A9040008EEF67 /* BrowseTableViewCell.swift in Sources */,
-				20C29BA01E998C67008EEF67 /* ImportOperation.swift in Sources */,
+				20BDFE111E9C253300FB4628 /* URL+Extensions.swift in Sources */,
 				20C29B901E9976A6008EEF67 /* LoginAPI.swift in Sources */,
-				20C29B951E997E9C008EEF67 /* URL+Extensions.swift in Sources */,
+				20BDFE0B1E9C252000FB4628 /* ImportOperation.swift in Sources */,
 				202330D31E9AAEB2006BA5DA /* BrowseViewModel.swift in Sources */,
+				20BDFE0D1E9C252B00FB4628 /* APIHelper.swift in Sources */,
 				20C29B8E1E9975B3008EEF67 /* LoginViewController.swift in Sources */,
 				20F15E3E1E9AE36B00E105F5 /* README.md in Sources */,
-				202330D71E9AB0B6006BA5DA /* DropboxItem+CoreDataProperties.swift in Sources */,
 				20C29B611E98E3BF008EEF67 /* AppDelegate.swift in Sources */,
-				202330DA1E9AB66D006BA5DA /* DataManager.swift in Sources */,
 				20C29B9B1E99807A008EEF67 /* BrowseNavigationController.swift in Sources */,
+				20BDFE101E9C253300FB4628 /* UIApplication+Extensions.swift in Sources */,
 				20C29B9D1E998221008EEF67 /* BrowseAPI.swift in Sources */,
+				20BDFE061E9C251000FB4628 /* DropboxItem+CoreDataClass.swift in Sources */,
 				202330DC1E9AD03B006BA5DA /* BrowseLoadMoreTableViewCell.swift in Sources */,
 				20C29B691E98E3BF008EEF67 /* MatchboxDropbox.xcdatamodeld in Sources */,
-				20C29B991E997FEE008EEF67 /* UIApplication+Extensions.swift in Sources */,
-				202330D61E9AB0B6006BA5DA /* DropboxItem+CoreDataClass.swift in Sources */,
-				20C29B971E997F57008EEF67 /* APIHelper.swift in Sources */,
+				20BDFE0A1E9C252000FB4628 /* DataManager.swift in Sources */,
 				20C29BB11E9A900D008EEF67 /* BrowseTableViewController.swift in Sources */,
+				20BDFE071E9C251000FB4628 /* DropboxItem+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
